@@ -57,6 +57,32 @@ export default function Index() {
     }
   };
 
+  const captureImage = async () => {
+    // Request camera permissions
+    const { status } = await ImagePicker.requestCameraPermissionsAsync();
+
+    if (status !== "granted") {
+      Alert.alert(
+        "Permission Required",
+        "Sorry, we need camera permissions to take photos!"
+      );
+      return;
+    }
+
+    // Launch camera
+    const result = await ImagePicker.launchCameraAsync({
+      mediaTypes: ["images"],
+      quality: 1,
+      base64: true,
+      allowsEditing: false
+    });
+
+    if (!result.canceled) {
+      console.log("Captured image:", result.assets[0].uri);
+      setSelectedImage(result.assets[0]);
+    }
+  };
+
   return (
     <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
       {translationResults.length === 0 ? (
@@ -77,7 +103,7 @@ export default function Index() {
 
           <TouchableOpacity
             style={styles.button}
-            onPress={() => console.log("Capture pressed")}
+            onPress={captureImage}
           >
             <Text style={styles.buttonText}>Capture</Text>
           </TouchableOpacity>
