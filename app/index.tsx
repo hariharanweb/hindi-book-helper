@@ -1,22 +1,30 @@
 import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
-import { Alert, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Alert, Image, StyleSheet, Text, TouchableOpacity, View, ScrollView } from "react-native";
 import { translateHindi } from '../services/openAi';
+import TranslationResults from '../components/TranslationResults';
+
+interface TranslationItem {
+  eng: string;
+  hin: string;
+}
 
 export default function Index() {
   const [selectedImage, setSelectedImage] = useState<ImagePicker.ImagePickerAsset | null>(null);
   const [isUploading, setIsUploading] = useState(false);
+  const [translationResults, setTranslationResults] = useState<TranslationItem[]>([]);
 
   const handleUpload = async () => {
     if (!selectedImage) return;
 
     try {
       setIsUploading(true);
-      const response = await translateHindi(selectedImage.uri);
-      Alert.alert("Success", "Image uploaded successfully!");
+      const response = await translateHindi(selectedImage.base64);
+      setTranslationResults(response);
+      Alert.alert("Success", "Translation completed successfully!");
       console.log("Upload response:", response);
     } catch (error) {
-      Alert.alert("Error", "Failed to upload image. Please try again.");
+      Alert.alert("Error", "Failed to translate image. Please try again.");
       console.error("Upload error:", error);
     } finally {
       setIsUploading(false);
@@ -40,60 +48,88 @@ export default function Index() {
       mediaTypes: ["images"],
       allowsMultipleSelection: false,
       quality: 1,
+      base64: true
     });
 
     if (!result.canceled) {
-      console.log("Selected image:", result.assets[0]);
+      console.log("Selected image:", result.assets[0].uri);
       setSelectedImage(result.assets[0]);
     }
   };
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        gap: 20,
-      }}
-    >
-      {selectedImage && (
-        <Image
-          source={{ uri: selectedImage.uri }}
-          style={styles.thumbnail}
-        />
+    <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
+      {translationResults.length === 0 ? (
+        <View style={styles.centerContent}>
+          {selectedImage && (
+            <Image
+              source={{ uri: selectedImage.uri }}
+              style={styles.thumbnail}
+            />
+          )}
+
+          <TouchableOpacity
+            style={styles.button}
+            onPress={pickImage}
+          >
+            <Text style={styles.buttonText}>Gallery</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => console.log("Capture pressed")}
+          >
+            <Text style={styles.buttonText}>Capture</Text>
+          </TouchableOpacity>
+
+          {selectedImage && (
+            <TouchableOpacity
+              style={styles.uploadButton}
+              onPress={handleUpload}
+              disabled={isUploading}
+            >
+              <Text style={styles.buttonText}>
+                {isUploading ? "Uploading..." : "Upload"}
+              </Text>
+            </TouchableOpacity>
+          )}
+        </View>
+      ) : (
+        <View style={styles.resultsContainer}>
+          <TouchableOpacity
+            style={styles.newButton}
+            onPress={() => {
+              setTranslationResults([]);
+              setSelectedImage(null);
+            }}
+          >
+            <Text style={styles.buttonText}>New Translation</Text>
+          </TouchableOpacity>
+          <TranslationResults results={translationResults} />
+        </View>
       )}
-
-      <TouchableOpacity
-        style={styles.button}
-        onPress={pickImage}
-      >
-        <Text style={styles.buttonText}>Gallery</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => console.log("Capture pressed")}
-      >
-        <Text style={styles.buttonText}>Capture</Text>
-      </TouchableOpacity>
-
-      {selectedImage && (
-        <TouchableOpacity
-          style={styles.uploadButton}
-          onPress={handleUpload}
-          disabled={isUploading}
-        >
-          <Text style={styles.buttonText}>
-            {isUploading ? "Uploading..." : "Upload"}
-          </Text>
-        </TouchableOpacity>
-      )}
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  scrollView: {
+    flex: 1,
+  },
+  scrollContent: {
+    flexGrow: 1,
+  },
+  centerContent: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 20,
+    padding: 20,
+  },
+  resultsContainer: {
+    flex: 1,
+    paddingTop: 20,
+  },
   thumbnail: {
     width: 200,
     height: 200,
@@ -115,6 +151,15 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     minWidth: 200,
     alignItems: "center",
+  },
+  newButton: {
+    backgroundColor: "#007AFF",
+    paddingHorizontal: 32,
+    paddingVertical: 16,
+    borderRadius: 8,
+    alignItems: "center",
+    marginHorizontal: 20,
+    marginBottom: 20,
   },
   buttonText: {
     color: "white",

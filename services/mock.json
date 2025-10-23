@@ -1,0 +1,68 @@
+{
+    "id": "resp_060a155f477b22110068f9d352a1a8819babd1429e896e16dc",
+    "object": "response",
+    "created_at": 1761203027,
+    "status": "completed",
+    "background": false,
+    "billing": {
+        "payer": "developer"
+    },
+    "error": null,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-4.1-mini-2025-04-14",
+    "output": [
+        {
+            "id": "msg_060a155f477b22110068f9d3550c6c819bb600cd3c395f2c5e",
+            "type": "message",
+            "status": "completed",
+            "content": [
+                {
+                    "type": "output_text",
+                    "annotations": [],
+                    "logprobs": [],
+                    "text": "[\n  {\n    \"eng\": \"From not took\",\n    \"hin\": \"से नहीं लिया\"\n  },\n  {\n    \"eng\": \"Time passed kept on\",\n    \"hin\": \"समय बीतता रहा\"\n  },\n  {\n    \"eng\": \"Cannon up branches till reached went\",\n    \"hin\": \"बेल ऊपर शाखों तक पहुँच गई\"\n  },\n  {\n    \"eng\": \"Cannon's trunk thick being started and truly trunk on tree under stair became\",\n    \"hin\": \"बेल का तना मोटा होना शुरू हुआ और सचमुच ही पेड़ के तने पर सीढ़ी बन गई\"\n  },\n  {\n    \"eng\": \"One day when all herons grain picking outside were, then one hunter upstairs came reached\",\n    \"hin\": \"एक दिन जब सभी बगुले दाना चुनने बाहर गए हुए थे, तभी एक शिकारी ऊधर आ पहुँचा\"\n  },\n  {\n    \"eng\": \"Stair made on tree seeing immediately it tree on climbed net spread and went\",\n    \"hin\": \"पेड़ पर बनी सीढ़ी को देखते ही उसने पेड़ पर चढ़कर जाल बिछाया और चला गया\"\n  },\n  {\n    \"eng\": \"Evening's time when herons returned then net in badly trapped went\",\n    \"hin\": \"शाम के समय जब बगुले लौटे तो जाल में बुरी तरह फंस गए\"\n  },\n  {\n    \"eng\": \"They net in flapping started, then them Tau's cleverness's indication understood\",\n    \"hin\": \"वे जाल में फड़फड़ाने लगे, तब उन्हें ताऊ की बुद्धिमानी का पता लगा\"\n  },\n  {\n    \"eng\": \"Tau mostly angry and silently sitting was\",\n    \"hin\": \"ताउ सबसे नाराज था और चुप बैठा था\"\n  },\n  {\n    \"eng\": \"One heron said Tau, crisis from getting out's method now you only us tell can\",\n    \"hin\": \"एक बगुले ने कहा, 'ताउ, संकट से निकलने की तरकीब अब आप ही हमें बता सकते हैं!'\"\n  },\n  {\n    \"eng\": \"All herons yes in yes agreed\",\n    \"hin\": \"सभी बगुलों ने हाँ में हाँ मिलाई\"\n  },\n  {\n    \"eng\": \"Then Tau them said - morning when hunter comes, then dying act do\",\n    \"hin\": \"तब ताउ ने उनसे कहा- सुबह जब शिकारी आएगा, तब मरने का नाटक करना\"\n  },\n  {\n    \"eng\": \"Hunter you dead thinking net from out taking ground on puts will\",\n    \"hin\": \"शिकारी तुम्हें मरा हुआ समझकर जाल से निकालकर जमीन पर रखता जाएगा\"\n  },\n  {\n    \"eng\": \"There also such only remain and just so he last heron to below keeps\",\n    \"hin\": \"वहाँ भी ऐसे हीड़े रहना और जैसे ही वह आखिरी बगुले को नीचे रखेगा,\"\n  },\n  {\n    \"eng\": \"I whistle blow\",\n    \"hin\": \"मैं सीटी बजाऊँगा\"\n  },\n  {\n    \"eng\": \"Whistle hearing immediately all fly away\",\n    \"hin\": \"सीटी सुनते ही सब उड़ जाना\"\n  },\n  {\n    \"eng\": \"Hunter came then herons did same\",\n    \"hin\": \"शिकारी आया तो बगुले ने वैसा ही किया\"\n  },\n  {\n    \"eng\": \"Like Tau explained was\",\n    \"hin\": \"जैसा ताउ ने समझाया था\"\n  },\n  {\n    \"eng\": \"Truly hunter herons to dead thinking ground on fell went\",\n    \"hin\": \"सचमुच शिकारी बगुलों को मरा हुआ समझकर जमीन पर पटकता गया\"\n  },\n  {\n    \"eng\": \"Then whistle's sound with immediately all herons flew away\",\n    \"hin\": \"तभी सीटी की आवाज के साथ ही सारे बगुले उड़ गए\"\n  },\n  {\n    \"eng\": \"Hunter watching stayed\",\n    \"hin\": \"शिकारी देखता रह गया\"\n  },\n  {\n    \"eng\": \"Oral questions\",\n    \"hin\": \"मौखिक प्रश्न\"\n  },\n  {\n    \"eng\": \"1. Herons where live were?\",\n    \"hin\": \"1. बगुले कहाँ रहते थे?\"\n  },\n  {\n    \"eng\": \"2. Old heron what saw?\",\n    \"hin\": \"2. बूढ़े बगुले ने क्या देखा?\"\n  },\n  {\n    \"eng\": \"3. Cannon up where till reached?\",\n    \"hin\": \"3. बेल ऊपर कहाँ तक पहुँच गई?\"\n  },\n  {\n    \"eng\": \"4. Stair where became?\",\n    \"hin\": \"4. सीढ़ी कहाँ बन गई?\"\n  }\n]"
+                }
+            ],
+            "role": "assistant"
+        }
+    ],
+    "parallel_tool_calls": true,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "reasoning": {
+        "effort": null,
+        "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1,
+    "text": {
+        "format": {
+            "type": "text"
+        },
+        "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 1,
+    "truncation": "disabled",
+    "usage": {
+        "input_tokens": 2495,
+        "input_tokens_details": {
+            "cached_tokens": 0
+        },
+        "output_tokens": 1032,
+        "output_tokens_details": {
+            "reasoning_tokens": 0
+        },
+        "total_tokens": 3527
+    },
+    "user": null,
+    "metadata": {},
+    "output_text": "[\n  {\n    \"eng\": \"From not took\",\n    \"hin\": \"से नहीं लिया\"\n  },\n  {\n    \"eng\": \"Time passed kept on\",\n    \"hin\": \"समय बीतता रहा\"\n  },\n  {\n    \"eng\": \"Cannon up branches till reached went\",\n    \"hin\": \"बेल ऊपर शाखों तक पहुँच गई\"\n  },\n  {\n    \"eng\": \"Cannon's trunk thick being started and truly trunk on tree under stair became\",\n    \"hin\": \"बेल का तना मोटा होना शुरू हुआ और सचमुच ही पेड़ के तने पर सीढ़ी बन गई\"\n  },\n  {\n    \"eng\": \"One day when all herons grain picking outside were, then one hunter upstairs came reached\",\n    \"hin\": \"एक दिन जब सभी बगुले दाना चुनने बाहर गए हुए थे, तभी एक शिकारी ऊधर आ पहुँचा\"\n  },\n  {\n    \"eng\": \"Stair made on tree seeing immediately it tree on climbed net spread and went\",\n    \"hin\": \"पेड़ पर बनी सीढ़ी को देखते ही उसने पेड़ पर चढ़कर जाल बिछाया और चला गया\"\n  },\n  {\n    \"eng\": \"Evening's time when herons returned then net in badly trapped went\",\n    \"hin\": \"शाम के समय जब बगुले लौटे तो जाल में बुरी तरह फंस गए\"\n  },\n  {\n    \"eng\": \"They net in flapping started, then them Tau's cleverness's indication understood\",\n    \"hin\": \"वे जाल में फड़फड़ाने लगे, तब उन्हें ताऊ की बुद्धिमानी का पता लगा\"\n  },\n  {\n    \"eng\": \"Tau mostly angry and silently sitting was\",\n    \"hin\": \"ताउ सबसे नाराज था और चुप बैठा था\"\n  },\n  {\n    \"eng\": \"One heron said Tau, crisis from getting out's method now you only us tell can\",\n    \"hin\": \"एक बगुले ने कहा, 'ताउ, संकट से निकलने की तरकीब अब आप ही हमें बता सकते हैं!'\"\n  },\n  {\n    \"eng\": \"All herons yes in yes agreed\",\n    \"hin\": \"सभी बगुलों ने हाँ में हाँ मिलाई\"\n  },\n  {\n    \"eng\": \"Then Tau them said - morning when hunter comes, then dying act do\",\n    \"hin\": \"तब ताउ ने उनसे कहा- सुबह जब शिकारी आएगा, तब मरने का नाटक करना\"\n  },\n  {\n    \"eng\": \"Hunter you dead thinking net from out taking ground on puts will\",\n    \"hin\": \"शिकारी तुम्हें मरा हुआ समझकर जाल से निकालकर जमीन पर रखता जाएगा\"\n  },\n  {\n    \"eng\": \"There also such only remain and just so he last heron to below keeps\",\n    \"hin\": \"वहाँ भी ऐसे हीड़े रहना और जैसे ही वह आखिरी बगुले को नीचे रखेगा,\"\n  },\n  {\n    \"eng\": \"I whistle blow\",\n    \"hin\": \"मैं सीटी बजाऊँगा\"\n  },\n  {\n    \"eng\": \"Whistle hearing immediately all fly away\",\n    \"hin\": \"सीटी सुनते ही सब उड़ जाना\"\n  },\n  {\n    \"eng\": \"Hunter came then herons did same\",\n    \"hin\": \"शिकारी आया तो बगुले ने वैसा ही किया\"\n  },\n  {\n    \"eng\": \"Like Tau explained was\",\n    \"hin\": \"जैसा ताउ ने समझाया था\"\n  },\n  {\n    \"eng\": \"Truly hunter herons to dead thinking ground on fell went\",\n    \"hin\": \"सचमुच शिकारी बगुलों को मरा हुआ समझकर जमीन पर पटकता गया\"\n  },\n  {\n    \"eng\": \"Then whistle's sound with immediately all herons flew away\",\n    \"hin\": \"तभी सीटी की आवाज के साथ ही सारे बगुले उड़ गए\"\n  },\n  {\n    \"eng\": \"Hunter watching stayed\",\n    \"hin\": \"शिकारी देखता रह गया\"\n  },\n  {\n    \"eng\": \"Oral questions\",\n    \"hin\": \"मौखिक प्रश्न\"\n  },\n  {\n    \"eng\": \"1. Herons where live were?\",\n    \"hin\": \"1. बगुले कहाँ रहते थे?\"\n  },\n  {\n    \"eng\": \"2. Old heron what saw?\",\n    \"hin\": \"2. बूढ़े बगुले ने क्या देखा?\"\n  },\n  {\n    \"eng\": \"3. Cannon up where till reached?\",\n    \"hin\": \"3. बेल ऊपर कहाँ तक पहुँच गई?\"\n  },\n  {\n    \"eng\": \"4. Stair where became?\",\n    \"hin\": \"4. सीढ़ी कहाँ बन गई?\"\n  }\n]"
+}
