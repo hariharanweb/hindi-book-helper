@@ -1,8 +1,10 @@
 import * as ImagePicker from "expo-image-picker";
+import * as DocumentPicker from "expo-document-picker";
 import { useState } from "react";
 import { Alert, Image, StyleSheet, Text, TouchableOpacity, View, ScrollView } from "react-native";
 import { translateHindi } from '../services/openAi';
 import TranslationResults from '../components/TranslationResults';
+import RNFS from 'react-native-fs';
 
 interface TranslationItem {
   eng: string;
@@ -83,6 +85,42 @@ export default function Index() {
     }
   };
 
+  const openFile = async () => {
+    try {
+      const result = await DocumentPicker.getDocumentAsync({
+        type: "application/json",
+        copyToCacheDirectory: true,
+      });
+
+      if (result.canceled) {
+        return;
+      }
+
+      const fileUri = result.assets[0].uri;
+      const fileContent = await RNFS.readFile(fileUri, 'utf8');
+      const jsonData = JSON.parse(fileContent);
+
+      // Validate the JSON structure
+      if (Array.isArray(jsonData) && jsonData.length > 0) {
+        const isValid = jsonData.every(
+          item => item.hasOwnProperty('eng') && item.hasOwnProperty('hin')
+        );
+
+        if (isValid) {
+          setTranslationResults(jsonData);
+          Alert.alert("Success", "File loaded successfully!");
+        } else {
+          Alert.alert("Error", "Invalid file format. Expected array of {eng, hin} objects.");
+        }
+      } else {
+        Alert.alert("Error", "Invalid file format. Expected non-empty array.");
+      }
+    } catch (error) {
+      console.error("Error opening file:", error);
+      Alert.alert("Error", "Failed to open or parse file. Please ensure it's a valid JSON file.");
+    }
+  };
+
   return (
     <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
       {translationResults.length === 0 ? (
@@ -106,6 +144,13 @@ export default function Index() {
             onPress={captureImage}
           >
             <Text style={styles.buttonText}>Capture</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.openFileButton}
+            onPress={openFile}
+          >
+            <Text style={styles.buttonText}>Open File</Text>
           </TouchableOpacity>
 
           {selectedImage && (
@@ -164,6 +209,14 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "#007AFF",
+    paddingHorizontal: 32,
+    paddingVertical: 16,
+    borderRadius: 8,
+    minWidth: 200,
+    alignItems: "center",
+  },
+  openFileButton: {
+    backgroundColor: "#FF9500",
     paddingHorizontal: 32,
     paddingVertical: 16,
     borderRadius: 8,

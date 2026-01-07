@@ -1,4 +1,6 @@
 import * as Clipboard from 'expo-clipboard';
+import * as Sharing from 'expo-sharing';
+import RNFS from 'react-native-fs';
 import { Alert, Share, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 interface TranslationItem {
@@ -44,6 +46,31 @@ export default function TranslationResults({ results }: TranslationResultsProps)
     }
   };
 
+  const handleSave = async () => {
+    try {
+      const jsonContent = JSON.stringify(results, null, 2);
+      const fileName = `translations_${Date.now()}.json`;
+      const fileUri = `${RNFS.CachesDirectoryPath}/${fileName}`;
+
+      // Write file using react-native-fs
+      await RNFS.writeFile(fileUri, jsonContent, 'utf8');
+
+      const isAvailable = await Sharing.isAvailableAsync();
+      if (isAvailable) {
+        await Sharing.shareAsync(fileUri, {
+          mimeType: 'application/json',
+          dialogTitle: 'Save Translation Output',
+          UTI: 'public.json',
+        });
+      } else {
+        Alert.alert("Success", "File created successfully");
+      }
+    } catch (error) {
+      console.error("Error saving file:", error);
+      Alert.alert("Error", "Failed to save file");
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
@@ -52,6 +79,9 @@ export default function TranslationResults({ results }: TranslationResultsProps)
         </TouchableOpacity>
         <TouchableOpacity style={styles.copyButton} onPress={handleCopy}>
           <Text style={styles.buttonText}>Copy</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
+          <Text style={styles.buttonText}>Save Output</Text>
         </TouchableOpacity>
       </View>
 
@@ -89,6 +119,13 @@ const styles = StyleSheet.create({
   copyButton: {
     flex: 1,
     backgroundColor: "#5856D6",
+    paddingVertical: 12,
+    borderRadius: 8,
+    alignItems: "center",
+  },
+  saveButton: {
+    flex: 1,
+    backgroundColor: "#FF9500",
     paddingVertical: 12,
     borderRadius: 8,
     alignItems: "center",
